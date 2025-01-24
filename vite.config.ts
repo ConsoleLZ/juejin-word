@@ -22,6 +22,15 @@ export default defineConfig({
     exclude: ['jieba-wasm']
   },
   build: {
-    assetsInlineLimit: 0 // 禁用文件内联
-  }
+    assetsInlineLimit: 0, // 禁用文件内联
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          echarts: ['echarts'],
+          jieba: ['jieba-wasm']
+        }
+      }
+    }
+  },
+  base: '/' // 添加base路径配置
 })
