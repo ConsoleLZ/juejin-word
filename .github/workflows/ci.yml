@@ -15,7 +15,6 @@ jobs:
       uses: actions/checkout@v4
     - name: Install and Build
       run: |
-        npm install -g typescript vue-tsc
         npm install
         npm run-script build
     - name: Deploy
