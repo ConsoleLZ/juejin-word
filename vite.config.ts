@@ -32,5 +32,5 @@ export default defineConfig({
       }
     }
   },
-  base: '/' // 添加base路径配置
+  base: '/juejin-word/' // 添加base路径配置
 })

@@ -32,16 +32,9 @@ const topWords = ref<{name: string, value: number}[]>([])
 // 获取新闻数据
 const fetchNews = async () => {
   try {
-    const res = await axios.get('/api/content_api/v1/content/article_rank', {
-      params: {
-        category_id: 1,
-        type: 'hot',
-        aid: 2608,
-        uuid: 7393247051805574697,
-        spider: 0
-      }
-    })
-    newsData.value = res.data.data.map((item: any) => item.content.title)
+    const res = await axios.get('https://sbmy.fun/api/hotSearch/queryByType?type=juejin')
+    
+    newsData.value = res.data.data.hotSearchDTOList.map((item: any) => item.hotSearchTitle)
     renderChart()
   } catch (error) {
     console.error('获取新闻失败:', error)
